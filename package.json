@@ -1,0 +1,28 @@
+{
+  "name": "grabit-server",
+  "version": "1.0.0",
+  "description": "Grabit - Local YouTube downloader using yt-dlp and aria2c with Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "youtube",
+    "downloader",
+    "express",
+    "grabit"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
