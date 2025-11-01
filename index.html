@@ -1,124 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grabit - Download Any Video</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grabit - Download Any Video</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Aurora Background (Unchanged) -->
-    <div class="aurora-background">
-        <div class="aurora-shape shape1"></div>
-        <div class="aurora-shape shape2"></div>
-        <div class="aurora-shape shape3"></div>
+  <!-- Aurora Background (Unchanged) -->
+  <div class="aurora-background">
+    <div class="aurora-shape shape1"></div>
+    <div class="aurora-shape shape2"></div>
+    <div class="aurora-shape shape3"></div>
+  </div>
+
+  <!-- Seamless Starfield (Unchanged) -->
+  <div class="starfield-layer" id="stars1"></div>
+  <div class="starfield-layer" id="stars2"></div>
+  <div class="starfield-layer" id="stars3"></div>
+
+  <!-- Header -->
+  <header class="page-header">
+    <h1>Grabit 🎬</h1>
+    <p class="subtitle">Your one-stop solution for video and audio downloads.</p>
+  </header>
+
+  <!-- Main Section -->
+  <main class="container animate-on-load-1">
+    <h2 class="container-title">Start Here</h2>
+
+    <div class="input-section">
+      <input type="text" id="urlInput" placeholder="Paste your video link here...">
+      <button id="grabButton">Grab!</button>
     </div>
 
-    <!-- Seamless Starfield (Unchanged) -->
-    <div class="starfield-layer" id="stars1"></div>
-    <div class="starfield-layer" id="stars2"></div>
-    <div class="starfield-layer" id="stars3"></div>
+    <!-- Download options -->
+    <div id="download-options" class="hidden">
 
-    <!-- Header (Unchanged) -->
-    <header class="page-header">
-        <h1>Grabit 🎬</h1>
-        <p class="subtitle">Your one-stop solution for video and audio downloads.</p>
-    </header>
+      <!-- Dynamic Title + Preview -->
+      <div class="video-title-bar">
+        <p id="videoFooterTitle"></p>
+      </div>
 
-    <!-- Main Content Block -->
-    <main class="container animate-on-load-1">
-        <h2 class="container-title">Start Here</h2>
-        
-        <div class="input-section">
-            <input type="text" id="urlInput" placeholder="Paste your video link here...">
-            <button id="grabButton">Grab!</button>
+      <div id="video-preview-container" class="hidden">
+        <div class="video-wrapper">
+          <video id="videoPreview" controls playsinline></video>
+          <div id="playOverlay">▶</div>
         </div>
+      </div>
 
-        <!-- Download options -->
-        <div id="download-options" class="hidden">
-
-            <!-- 🆕 Dynamic Video Title + Preview -->
-            <div class="video-title-bar">
-                <p id="videoFooterTitle"></p>
-            </div>
-
-            <div id="video-preview-container" class="hidden">
-                <div class="video-wrapper">
-                    <video id="videoPreview" controls playsinline></video>
-                    <div id="playOverlay">▶</div>
-                </div>
-            </div>
-
-            <div class="format-section">
-                <h4>Video (MP4)</h4>
-                <div class="quality-selector">
-                    <select id="mp4Quality">
-                        <option value="1080">1080p Full HD</option>
-                        <option value="720" selected>720p HD</option>
-                        <option value="480">480p SD</option>
-                    </select>
-                    <button type="button" class="download-btn">Download MP4</button>
-                </div>
-            </div>
-
-            <div class="format-section">
-                <h4>Audio (MP3)</h4>
-                <div class="quality-selector">
-                    <select id="mp3Quality">
-                        <option value="320" selected>High Quality (320kbps)</option>
-                        <option value="192">Medium Quality (192kbps)</option>
-                        <option value="128">Standard Quality (128kbps)</option>
-                    </select>
-                    <button type="button" class="download-btn">Download MP3</button>
-                </div>
-            </div>
+      <div class="format-section">
+        <h4>Video (MP4)</h4>
+        <div class="quality-selector">
+          <select id="mp4Quality">
+            <option value="1080">1080p Full HD</option>
+            <option value="720" selected>720p HD</option>
+            <option value="480">480p SD</option>
+          </select>
+          <button type="button" class="download-btn">Download MP4</button>
         </div>
+      </div>
 
-        <!-- Loader -->
-        <div id="loader" class="hidden">
-            <div class="spinner"></div>
-            <p>Grabbing your video...</p>
+      <div class="format-section">
+        <h4>Audio (MP3)</h4>
+        <div class="quality-selector">
+          <select id="mp3Quality">
+            <option value="320" selected>High Quality (320kbps)</option>
+            <option value="192">Medium Quality (192kbps)</option>
+            <option value="128">Standard Quality (128kbps)</option>
+          </select>
+          <button type="button" class="download-btn">Download MP3</button>
         </div>
-    </main>
+      </div>
+    </div>
 
-    <!-- Features Section (Unchanged) -->
-    <section class="features-section">
-        <div class="feature-card animate-on-load-2">
-            <h2>Why Grabit? ✨</h2>
-            <ul>
-                <li><strong>Completely Free:</strong> No hidden costs or sign-ups.</li>
-                <li><strong>Universal Support:</strong> Works with almost any video platform.</li>
-                <li><strong>High Quality:</strong> Download in Full HD and high-bitrate MP3.</li>
-                <li><strong>Fast & Simple:</strong> Just paste the link and go.</li>
-                <li><strong>Safe & Secure:</strong> Your downloads are private.</li>
-            </ul>
-        </div>
+    <!-- Loader -->
+    <div id="loader" class="hidden">
+      <div class="spinner"></div>
+      <p>Grabbing your video...</p>
+    </div>
+  </main>
 
-        <div class="feature-card animate-on-load-3">
-            <h2>Supported Platforms</h2>
-            <p>We support thousands of websites, including:</p>
-            <div class="platform-logos">
-                <span>YouTube</span>
-                <span>Facebook</span>
-                <span>Vimeo</span>
-                <span>Instagram</span>
-                <span>TikTok</span>
-                <span>Twitter</span>
-            </div>
-            <p style="margin-top: 20px;">...and many more!</p>
-        </div>
-    </section>
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="feature-card animate-on-load-2">
+      <h2>Why Grabit? ✨</h2>
+      <ul>
+        <li><strong>Completely Free:</strong> No hidden costs or sign-ups.</li>
+        <li><strong>Universal Support:</strong> Works with almost any video platform.</li>
+        <li><strong>High Quality:</strong> Download in Full HD and high-bitrate MP3.</li>
+        <li><strong>Fast & Simple:</strong> Just paste the link and go.</li>
+        <li><strong>Safe & Secure:</strong> Your downloads are private.</li>
+      </ul>
+    </div>
 
-    <!-- Footer (Unchanged) -->
-    <footer class="page-footer">
-        <p>&copy; 2025 Narwal Industries. All rights reserved. For personal use only. | Grabit</p>
-    </footer>
+    <div class="feature-card animate-on-load-3">
+      <h2>Supported Platforms</h2>
+      <p>We support thousands of websites, including:</p>
+      <div class="platform-logos">
+        <span>YouTube</span>
+        <span>Facebook</span>
+        <span>Vimeo</span>
+        <span>Instagram</span>
+        <span>TikTok</span>
+        <span>Twitter</span>
+      </div>
+      <p style="margin-top: 20px;">...and many more!</p>
+    </div>
+  </section>
 
-    <!-- ✅ Script points to fixed backend (no change in file name) -->
-    <script src="script.js"></script>
+  <!-- Footer -->
+  <footer class="page-footer">
+    <p>&copy; 2025 Narwal Industries. All rights reserved. For personal use only. | Grabit</p>
+  </footer>
+
+  <!-- ✅ Use same script with backend fix -->
+  <script src="script.js" crossorigin="anonymous"></script>
 </body>
 </html>

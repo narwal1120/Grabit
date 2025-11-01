@@ -19,7 +19,12 @@ grabButton.addEventListener('click', async () => {
     videoContainer.classList.add('hidden');
 
     try {
-        const res = await fetch(`https://linux-grabit.onrender.com/video_info?url=${encodeURIComponent(url)}`);
+        // 🆕 Added mode: 'cors' and cache: 'no-cache'
+        const res = await fetch(`https://linux-grabit.onrender.com/video_info?url=${encodeURIComponent(url)}`, {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'no-cache'
+        });
         const data = await res.json();
 
         if (!data.videoUrl) throw new Error('No playable video found');
@@ -52,11 +57,11 @@ function triggerDownload(url, filename) {
     a.remove();
 }
 
-// 🎥 MP4 Download (fixed — behaves like MP3, no reload)
+// 🎥 MP4 Download
 document.querySelectorAll('.format-section')[0]
     .querySelector('.download-btn')
     .addEventListener('click', (e) => {
-        e.preventDefault(); // ✅ prevent accidental reload
+        e.preventDefault();
         const url = downloadOptions.dataset.url;
         const title = downloadOptions.dataset.title;
         const quality = document.getElementById('mp4Quality').value;
@@ -67,7 +72,7 @@ document.querySelectorAll('.format-section')[0]
         triggerDownload(downloadUrl, filename);
     });
 
-// 🎵 MP3 Download (same logic)
+// 🎵 MP3 Download
 document.querySelectorAll('.format-section')[1]
     .querySelector('.download-btn')
     .addEventListener('click', (e) => {
