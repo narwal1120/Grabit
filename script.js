@@ -19,7 +19,7 @@ grabButton.addEventListener('click', async () => {
     videoContainer.classList.add('hidden');
 
     try {
-        const res = await fetch(`http://localhost:8000/video_info?url=${encodeURIComponent(url)}`);
+        const res = await fetch(`https://linux-grabit.onrender.com/video_info?url=${encodeURIComponent(url)}`);
         const data = await res.json();
 
         if (!data.videoUrl) throw new Error('No playable video found');
@@ -61,7 +61,7 @@ document.querySelectorAll('.format-section')[0]
         const title = downloadOptions.dataset.title;
         const quality = document.getElementById('mp4Quality').value;
 
-        const downloadUrl = `http://localhost:8000/download_video?url=${encodeURIComponent(url)}&quality=${quality}&title=${encodeURIComponent(title)}`;
+        const downloadUrl = `https://linux-grabit.onrender.com/download_video?url=${encodeURIComponent(url)}&quality=${quality}&title=${encodeURIComponent(title)}`;
         const filename = `${title}-${quality}p.mp4`;
 
         triggerDownload(downloadUrl, filename);
@@ -76,7 +76,7 @@ document.querySelectorAll('.format-section')[1]
         const title = downloadOptions.dataset.title;
         const quality = document.getElementById('mp3Quality').value;
 
-        const downloadUrl = `http://localhost:8000/download_audio?url=${encodeURIComponent(url)}&quality=${quality}&title=${encodeURIComponent(title)}`;
+        const downloadUrl = `https://linux-grabit.onrender.com/download_audio?url=${encodeURIComponent(url)}&quality=${quality}&title=${encodeURIComponent(title)}`;
         const filename = `${title}-${quality}kbps.mp3`;
 
         triggerDownload(downloadUrl, filename);
