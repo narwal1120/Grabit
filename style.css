@@ -173,7 +173,7 @@ body {
     max-width: 650px;
     margin: 0 auto 40px auto;
     padding: 30px 40px;
-    box-sizing: border-box; /* Added for consistency */
+    box-sizing: border-box;
 }
 .container-title {
     text-align: center;
@@ -195,7 +195,7 @@ body {
 }
 .feature-card {
     padding: 30px;
-    box-sizing: border-box; /* Added for consistency */
+    box-sizing: border-box;
 }
 .feature-card h2 {
     color: #fff;
@@ -230,7 +230,7 @@ body {
     font-size: 1rem;
     outline: none;
     transition: border-color 0.3s, box-shadow 0.3s;
-    min-width: 0; /* Prevents flex overflow */
+    min-width: 0;
 }
 #urlInput::placeholder { color: #aaa; }
 #urlInput:focus {
@@ -250,7 +250,7 @@ body {
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     animation: pulse 2.5s infinite ease-in-out;
-    flex-shrink: 0; /* Prevents button from shrinking */
+    flex-shrink: 0;
 }
 #grabButton:hover {
     transform: translateY(-3px);
@@ -326,13 +326,10 @@ select {
 .animate-on-load-2 { animation: fadeInUp 0.5s ease-out 0.4s forwards; opacity: 0; }
 .animate-on-load-3 { animation: fadeInUp 0.5s ease-out 0.5s forwards; opacity: 0; }
 
-/* ----- RESPONSIVE UPDATES ----- */
-
 /* Tablet breakpoint */
 @media (max-width: 900px) {
     .features-section {
         grid-template-columns: 1fr;
-        /* NEW: This makes the stacked cards align with the main container */
         max-width: 650px;
         margin-left: auto;
         margin-right: auto;
@@ -343,22 +340,15 @@ select {
 @media (max-width: 768px) {
     body { padding: 20px 10px; }
     .page-header h1 { font-size: 2.5rem; }
-    .container, .feature-card { 
-        padding: 20px; 
-    }
-
-    /* NEW: Stacks the input bar and grab button */
-    .input-section {
-        flex-direction: column;
-    }
-
+    .container, .feature-card { padding: 20px; }
+    .input-section { flex-direction: column; }
     .video-info { flex-direction: column; align-items: flex-start; }
     #thumbnail { width: 100%; height: auto; }
     .quality-selector { flex-direction: column; align-items: stretch; }
     .download-btn { margin-top: 10px; }
 }
 
-/* 🆕 Refined Dynamic Video Preview */
+/* 🆕 Dynamic Aspect-Aware Video Container */
 #video-preview-container {
     position: relative;
     width: 100%;
@@ -369,17 +359,16 @@ select {
     background: #111;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     aspect-ratio: 16 / 9;
+    transition: all 0.35s ease;
 }
-
-/* Separated transparent title above video */
 .video-title-bar {
     text-align: center;
     margin-bottom: 10px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 8px;
     padding: 6px 10px;
-    display: block; /* ✅ changed from inline-block to block */
-    width: fit-content; /* keeps natural width */
+    display: block;
+    width: fit-content;
     margin-left: auto;
     margin-right: auto;
     color: #ffffff;
@@ -389,10 +378,11 @@ select {
     -webkit-backdrop-filter: blur(6px);
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
-
-/* Video wrapper for maintaining aspect ratio */
 .video-wrapper {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
 }
@@ -404,44 +394,51 @@ select {
     display: block;
     border-radius: 10px;
 }
-
-/* Perfectly centered play overlay */
-#playOverlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 60px;
-    color: white;
-    background: rgba(0, 0, 0, 0.55);
-    border-radius: 50%;
-    padding: 15px 32px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+#video-preview-container.portrait {
+    aspect-ratio: 9 / 16;
+    max-width: 400px;
 }
-#playOverlay:hover {
-    background: rgba(0, 0, 0, 0.8);
-    transform: translate(-50%, -50%) scale(1.1);
+#video-preview-container.landscape {
+    aspect-ratio: 16 / 9;
+    max-width: 960px;
 }
-
-/* For vertical/short videos */
-@media (orientation: portrait) {
-    #video-preview-container {
-        max-width: 400px;
-        aspect-ratio: 9 / 16;
-    }
+#video-preview-container.square {
+    aspect-ratio: 1 / 1;
+    max-width: 480px;
 }
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
-    #video-preview-container {
-        max-width: 100%;
-    }
+    #video-preview-container { max-width: 100%; }
     .video-title-bar {
         font-size: 0.95rem;
         padding: 5px 8px;
     }
+}
+/* ✨ Premium Play Button Styling — perfectly centered, animated, and modern */
+
+
+#playOverlay::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 22px solid white;
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  margin-left: 6px;
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.6));
+  transition: transform 0.3s ease;
+}
+
+#playOverlay:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+  box-shadow: 0 0 35px rgba(37,117,252,0.7), 0 0 60px rgba(106,17,203,0.4);
+}
+
+#playOverlay:hover::before {
+  transform: scale(1.1);
+}
+
+@keyframes pulsePlay {
+  0% { box-shadow: 0 0 25px rgba(37,117,252,0.4), 0 0 45px rgba(106,17,203,0.2); transform: translate(-50%, -50%) scale(1); }
+  50% { box-shadow: 0 0 40px rgba(37,117,252,0.7), 0 0 70px rgba(106,17,203,0.4); transform: translate(-50%, -50%) scale(1.05); }
+  100% { box-shadow: 0 0 25px rgba(37,117,252,0.4), 0 0 45px rgba(106,17,203,0.2); transform: translate(-50%, -50%) scale(1); }
 }

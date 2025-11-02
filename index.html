@@ -11,14 +11,14 @@
 </head>
 <body>
 
-  <!-- Aurora Background (Unchanged) -->
+  <!-- Aurora Background -->
   <div class="aurora-background">
     <div class="aurora-shape shape1"></div>
     <div class="aurora-shape shape2"></div>
     <div class="aurora-shape shape3"></div>
   </div>
 
-  <!-- Seamless Starfield (Unchanged) -->
+  <!-- Starfield -->
   <div class="starfield-layer" id="stars1"></div>
   <div class="starfield-layer" id="stars2"></div>
   <div class="starfield-layer" id="stars3"></div>
@@ -38,10 +38,11 @@
       <button id="grabButton">Grab!</button>
     </div>
 
+    <!-- Error container -->
+    <div id="errorBox" class="hidden"></div>
+
     <!-- Download options -->
     <div id="download-options" class="hidden">
-
-      <!-- Dynamic Title + Preview -->
       <div class="video-title-bar">
         <p id="videoFooterTitle"></p>
       </div>
@@ -49,7 +50,7 @@
       <div id="video-preview-container" class="hidden">
         <div class="video-wrapper">
           <video id="videoPreview" controls playsinline></video>
-          <div id="playOverlay">▶</div>
+          <div id="playOverlay"></div>
         </div>
       </div>
 
@@ -61,7 +62,7 @@
             <option value="720" selected>720p HD</option>
             <option value="480">480p SD</option>
           </select>
-          <button type="button" class="download-btn">Download MP4</button>
+          <button id="downloadMp4" type="button" class="download-btn">Download MP4</button>
         </div>
       </div>
 
@@ -73,19 +74,17 @@
             <option value="192">Medium Quality (192kbps)</option>
             <option value="128">Standard Quality (128kbps)</option>
           </select>
-          <button type="button" class="download-btn">Download MP3</button>
+          <button id="downloadMp3" type="button" class="download-btn">Download MP3</button>
         </div>
       </div>
     </div>
 
-    <!-- Loader -->
     <div id="loader" class="hidden">
       <div class="spinner"></div>
       <p>Grabbing your video...</p>
     </div>
   </main>
 
-  <!-- Features Section -->
   <section class="features-section">
     <div class="feature-card animate-on-load-2">
       <h2>Why Grabit? ✨</h2>
@@ -113,12 +112,12 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="page-footer">
     <p>&copy; 2025 Narwal Industries. All rights reserved. For personal use only. | Grabit</p>
   </footer>
-
-  <!-- ✅ Use same script with backend fix -->
-  <script src="script.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p-queue@7.3.4/dist/index.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
