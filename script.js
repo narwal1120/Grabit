@@ -1,6 +1,6 @@
 // script.js — Grabit Client (dynamic video container, no autoplay, always highest-quality preview)
 document.addEventListener("DOMContentLoaded", () => {
-  const BACKEND_BASE = "https://grabit-backend-cao4.onrender.com";
+  const BACKEND_BASE = "http://10.153.77.47.8000";
 
   const urlInput = document.getElementById("urlInput");
   const grabButton = document.getElementById("grabButton");
