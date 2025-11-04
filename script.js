@@ -1,6 +1,6 @@
 // script.js — Grabit Client (dynamic video container, no autoplay, always highest-quality preview)
 document.addEventListener("DOMContentLoaded", () => {
-  const BACKEND_BASE = "https://diabetes-estimation-crimes-love.trycloudfare.com";
+  const BACKEND_BASE = "https://sariah-unreliant-occultly.ngrok-free.dev";
 
   const urlInput = document.getElementById("urlInput");
   const grabButton = document.getElementById("grabButton");
