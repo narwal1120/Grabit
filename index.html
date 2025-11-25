@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grabit Video Downloader - Download Any Video & Audio for Free</title>
+  <meta name="description"
+    content="Grabit Video Downloader lets you download videos and audio from YouTube, Facebook, Instagram, TikTok, and more—quickly, safely, and for free." />
+  <meta name="keywords"
+    content="Grabit, video downloader, download videos, MP4 downloader, MP3 downloader, YouTube downloader, free video download" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <meta name="google-site-verification" content="mEudI-KozhERyBUKjuwlWR8CKtN9yN3Cm6LBlyINedY" />
+</head>
+
+<body>
+  <div class="aurora-background">
+    <div class="aurora-shape shape1"></div>
+    <div class="aurora-shape shape2"></div>
+    <div class="aurora-shape shape3"></div>
+  </div>
+  <div class="starfield-layer" id="stars1"></div>
+  <div class="starfield-layer" id="stars2"></div>
+  <div class="starfield-layer" id="stars3"></div>
+  <header class="page-header">
+    <h1>Grabit 🎬</h1>
+    <p class="subtitle">Your one-stop solution for video and audio downloads.</p>
+  </header>
+  <main class="container animate-on-load-1">
+    <h2 class="container-title">Start Here</h2>
+    <div class="input-section">
+      <input type="text" id="urlInput" placeholder="Paste your video link here..." />
+      <button id="grabButton" type="button">Grab!</button>
+    </div>
+    <div id="errorBox" class="hidden"></div>
+    <div id="download-options" class="hidden">
+      <div class="video-title-bar">
+        <p id="videoFooterTitle"></p>
+      </div>
+      <div id="video-preview-container" class="hidden">
+        <div class="video-wrapper">
+          <video id="videoPreview" controls playsinline></video>
+          <div id="playOverlay"></div>
+        </div>
+      </div>
+      <div id="formatsList"></div>
+      <div class="format-section">
+        <h4>Video (MP4)</h4>
+        <div class="quality-selector">
+          <select id="mp4Quality">
+            <option value="2160">2160p (4K)</option>
+            <option value="1440">1440p (2K) </option>
+            <option value="1080">1080p Full HD</option>
+            <option value="720" selected>720p HD</option>
+            <option value="480">480p SD</option>
+          </select>
+          <button id="downloadMp4" type="button" class="download-btn">Download MP4</button>
+        </div>
+      </div>
+      <div class="format-section">
+        <h4>Audio (MP3)</h4>
+        <div class="quality-selector">
+          <select id="mp3Quality">
+            <option value="320" selected>High Quality (320kbps)</option>
+            <option value="192">Medium Quality (192kbps)</option>
+            <option value="128">Standard Quality (128kbps)</option>
+          </select>
+          <button id="downloadMp3" type="button" class="download-btn">Download MP3</button>
+        </div>
+      </div>
+    </div>
+    <div id="loader" class="hidden">
+      <div class="spinner"></div>
+      <p>Grabbing your video...</p>
+    </div>
+  </main>
+  <section class="features-section">
+    <div class="feature-card animate-on-load-2">
+      <h2>Why Grabit? ✨</h2>
+      <ul>
+        <li><strong>Completely Free:</strong> No hidden costs or sign-ups.</li>
+        <li><strong>Universal Support:</strong> Works with almost any video platform.</li>
+        <li><strong>High Quality:</strong> Download in Full HD and high-bitrate MP3.</li>
+        <li><strong>Fast & Simple:</strong> Just paste the link and go.</li>
+        <li><strong>Safe & Secure:</strong> Your downloads are private.</li>
+      </ul>
+    </div>
+    <div class="feature-card animate-on-load-3">
+      <h2>Supported Platforms</h2>
+      <p>We support thousands of websites, including:</p>
+      <div class="platform-logos">
+        <span>YouTube</span>
+        <span>Facebook</span>
+        <span>Vimeo</span>
+        <span>Instagram</span>
+        <span>TikTok</span>
+        <span>Twitter</span>
+      </div>
+      <p style="margin-top: 20px;">...and many more!</p>
+    </div>
+  </section>
+  <footer class="page-footer">
+    <p>&copy; 2025 Narwal Industries. All rights reserved. For personal use only. | Grabit</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+  <script src="script_b.js"></script>
+  <script src="script_p.js"></script>
+  <script src="script_v.js"></script>
+  <script src="script_a.js"></script>
+</body>
+
+</html>
