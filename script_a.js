@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     try {
       console.log("Sending request to backend...", { url, quality, title });   
-      const response = await fetch("http://172.20.187.109:5000/video/download_mp4", {
+      const response = await fetch("https://sariah-unreliant-occultly.ngrok-free.dev/video/download_mp4", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url, quality, title }),
