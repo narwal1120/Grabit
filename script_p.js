@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     downloadMp4Button.disabled = true;
     window.currentVideoUrl = null;
     try {
-      const extractResponse = await fetch('http://172.20.187.109:5000/extract', {
+      const extractResponse = await fetch('https://sariah-unreliant-occultly.ngrok-free.dev/extract', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url: videoUrl }),
