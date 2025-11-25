@@ -105,7 +105,7 @@ document.getElementById("downloadMp3").addEventListener("click", async () => {
     progressContainer.style.display = 'none';
     return;
   }
-  const apiUrl = `https://grabit-backend-ofjz.onrender.com/download/mp3?url=${encodeURIComponent(url)}&quality=${quality}`;
+  const apiUrl = `http://172.20.187.109:5000/download/mp3?url=${encodeURIComponent(url)}&quality=${quality}`;
   console.log("Fetching:", apiUrl);
   try {
     const response = await fetch(apiUrl);
